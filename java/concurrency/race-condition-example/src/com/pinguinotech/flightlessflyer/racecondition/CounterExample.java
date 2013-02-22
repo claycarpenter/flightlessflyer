@@ -36,10 +36,16 @@ public class CounterExample {
 		System.out.println("\n\n");
 		HashMap<Integer, Vector<IdClient>> idMap = new HashMap<Integer, Vector<IdClient>>(
 				ID_MAX);
+		int totalIdsAcquired = 0;
 		for (IdClient idClient : idClients) {
 			System.out.println(idClient + " acquired "
 					+ idClient.acquiredIds.size() + " IDs.");
 
+			// Add the IdClient's acquired IDs count to the total.
+			totalIdsAcquired += idClient.acquiredIds.size();
+
+			// Sort the acquired IDs by ID value, allowing for tracking of any
+			// ID that was acquired by multiple IdClients.
 			for (Integer id : idClient.acquiredIds) {
 				if (!idMap.containsKey(id)) {
 					idMap.put(id, new Vector<IdClient>());
@@ -49,12 +55,11 @@ public class CounterExample {
 			}
 		}
 
-		// Tabulate and sort the IDs.
-		System.out.println("\nIDs Acquired:\n");
-//		for (Integer id : idMap.keySet()) {
-//			System.out.println("ID " + id + " acquired by " + idMap.get(id));
-//		}
-
+		System.out.println("\nID Acquisition Errors:\n");
+		if (totalIdsAcquired != ID_MAX) {
+			System.out.println(ID_MAX + " IDs were available; "
+					+ totalIdsAcquired + " IDs were acquried by clients.");
+		}
 		for (int i = 1; i < ID_MAX; i++) {
 			if (!idMap.containsKey(i)) {
 				System.out.println("ID " + i + " was never acquired.");
