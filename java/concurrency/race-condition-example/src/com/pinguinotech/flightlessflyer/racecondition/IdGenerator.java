@@ -15,7 +15,7 @@ public class IdGenerator {
 	}
 	
 	public boolean hasMoreIds() {
-		return (idCounter + 1) < allocationLimit;
+		return (idCounter + 1) <= allocationLimit;
 	}
 
 	public int getNextId() throws IdAllocationLimitException {
