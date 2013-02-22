@@ -23,8 +23,6 @@ public class IdClient extends Thread {
 				int newId = idGenerator.getNextId();
 				acquiredIds.add(newId);
 
-//				System.out.println(this.toString() + " acquired ID " + newId);
-
 				try {
 					Thread.sleep(0);
 				} catch (InterruptedException e) {
