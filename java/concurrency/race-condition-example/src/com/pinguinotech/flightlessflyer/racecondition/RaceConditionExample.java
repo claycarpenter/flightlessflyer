@@ -3,7 +3,7 @@ package com.pinguinotech.flightlessflyer.racecondition;
 import java.util.HashMap;
 import java.util.Vector;
 
-public class CounterExample {
+public class RaceConditionExample {
 
 	private static final int	THREAD_COUNT	= 10;
 	private static final int	ID_MAX			= 1 * 1000;
