@@ -1,4 +1,4 @@
 flightlessflyer
 ===============
 
-Repository for examples post on flightlessflyer.pinguinotech.com.
+Repository for examples posted on flightlessflyer.pinguinotech.com.
