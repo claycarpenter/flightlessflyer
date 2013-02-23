@@ -24,11 +24,14 @@ public class RaceConditionExample {
 		}
 
 		// Wait for the IdGenerator to finish handing out IDs.
-		while (idGenerator.hasMoreIds()) {
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// Do nothing.
+		for (IdClient idClient : idClients) {
+			while (idClient.isAlive()) {
+				try {
+					System.out.println(idClient + " is still alive. Waiting.");
+					idClient.join(0);
+				} catch (InterruptedException e) {
+					// Do nothing.
+				}
 			}
 		}
 
